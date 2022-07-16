@@ -19,20 +19,20 @@ internalField   uniform 298;
 
 boundaryField
 {
-   inlet
+    inlet
     {
-        type            fixedValue
-	value		uniform 2800;
+        type            fixedValue;
+	    value		    uniform 2800;
     }
 
     outlet
     {
         type            fixedValue;
-	value		uniform 298;
+	    value		    uniform 298;
     }
 
 
-    simmetry
+    symmetry
     {
         type            symmetryPlane;
     }
@@ -44,7 +44,7 @@ boundaryField
     }
 
 
-   front	
+    front
     {
         type            empty;
     }
@@ -56,10 +56,10 @@ boundaryField
     }
 
 
-    far_fields
+    far_field
     {
         type            fixedValue;
-	value		uniform 298
+	    value		    uniform 298;
     }
 }
 

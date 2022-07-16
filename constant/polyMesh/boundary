@@ -18,7 +18,7 @@ FoamFile
 (
     walls
     {
-        type            patch;
+        type            wall;
         nFaces          494;
         startFace       26516;
     }
@@ -30,19 +30,19 @@ FoamFile
     }
     front
     {
-        type            patch;
+        type            empty;
         nFaces          13540;
         startFace       27330;
     }
     back
     {
-        type            patch;
+        type            empty;
         nFaces          13540;
         startFace       40870;
     }
-    simmetry
+    symmetry
     {
-        type            patch;
+        type            symmetryPlane;
         nFaces          266;
         startFace       54410;
     }

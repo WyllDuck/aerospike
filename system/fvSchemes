@@ -50,5 +50,17 @@ snGradSchemes
     default         corrected;
 }
 
+wallDist
+{
+    method meshWave;
+
+    // Optional entry enabling the calculation
+    // of the normal-to-wall field
+    nRequired false;
+
+    // Optional entry delaying wall distance update to every n steps
+    // Default is 1 (update every step)
+    updateInterval 5;
+}
 
 // ************************************************************************* //

@@ -21,7 +21,7 @@ boundaryField
 {
     inlet
     {
-        type            zeroGradient
+        type            zeroGradient;
     }
 
     outlet
@@ -30,7 +30,7 @@ boundaryField
     }
 
 
-    simmetry
+    symmetry
     {
         type            symmetryPlane;
     }
@@ -42,7 +42,7 @@ boundaryField
     }
 
 
-   front	
+    front
     {
         type            empty;
     }
@@ -54,10 +54,10 @@ boundaryField
     }
 
 
-    far_fields
+    far_field
     {
         type            fixedValue;
-	value		uniform (0 0 0);
+	    value		    uniform (0 0 0);
     }
 }
 

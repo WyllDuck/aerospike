@@ -9,58 +9,62 @@ FoamFile
 {
     format      ascii;
     class       volScalarField;
-    object      p;
+    object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 100000;
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
 
 boundaryField
 {
+
+    /*
+    source: https://www.cfd-online.com/Forums/openfoam-pre-processing/140984-what-does-calculated-boundary-condition-mean-0-nut-file.html
+    calculated means, that the property you are referring to is already fully defined by the other boundary conditions and properties you defined in the constant folder.
+    */
+
     inlet
     {
-        type            fixedValue;
-	    value		    uniform 800000;
+        type            calculated;
+        value           uniform 0;
     }
-
+    
     outlet
     {
-        type            fixedValue;
-	    value		    uniform 100000;
+        type            calculated;
+        value           uniform 0;
     }
-
 
     symmetry
     {
         type            symmetryPlane;
     }
 
-
     walls
     {
-        type            zeroGradient;
+        type            nutkWallFunction; // only entry of importance
+        value           uniform 0;
     }
 
-
-    front	
+    front
     {
         type            empty;
     }
-
 
     back
     {
         type            empty;
     }
 
-
     far_field
     {
-        type            fixedValue;
-	    value		    uniform 100000;
+        type            fixedValue; // Review: value? 
+        value           uniform 0;
     }
 }
+
 
 // ************************************************************************* //

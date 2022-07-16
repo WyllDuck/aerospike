@@ -7,59 +7,62 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    format      ascii;
-    class       volScalarField;
-    object      p;
+    format ascii;
+    class volScalarField;
+    object omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions[0 0 - 1 0 0 0 0];
 
-internalField   uniform 100000;
+internalField uniform ? ? ? ;
 
 boundaryField
 {
+
     inlet
     {
         type            fixedValue;
-	    value		    uniform 800000;
+	    value		    uniform 2800;
     }
 
     outlet
     {
         type            fixedValue;
-	    value		    uniform 100000;
+	    value		    uniform 298;
     }
-
 
     symmetry
     {
         type            symmetryPlane;
     }
 
-
     walls
     {
-        type            zeroGradient;
+        type omegaWallFunction;
+        Cmu 0.09;
+        kappa 0.41;
+        E 9.8;
+        value uniform ? ? ? ? ;
+    }
     }
 
-
-    front	
+    front
     {
         type            empty;
     }
-
 
     back
     {
         type            empty;
     }
 
-
     far_field
     {
-        type            fixedValue;
-	    value		    uniform 100000;
+        type turbulentMixingLengthFrequencyInlet;
+        mixingLength 0.005;
+        k k;
+        value uniform ? ? ? ? ;
     }
 }
 
