@@ -35,7 +35,7 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0; // Considering static air (U_inf = 0) as the initial state.
+internalField   uniform 1e-12; // Considering static air (U_inf = 0) as the initial state.
 
 boundaryField
 {
@@ -58,6 +58,7 @@ boundaryField
     walls
     {
         type            kqRWallFunction;
+        value           uniform 1e-12;
     }
 
     front
@@ -72,8 +73,7 @@ boundaryField
 
     far_field
     {
-        type            fixedValue; // ground testing => static fluid
-        value           uniform 0;
+        type            zeroGradient;
     }
 }
 

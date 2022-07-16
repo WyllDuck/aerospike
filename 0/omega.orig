@@ -35,23 +35,19 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField uniform 0; // Considering static air (U_inf = 0) as the initial state.
+internalField uniform 0.000001; // Considering static air (U_inf = 0) as the initial state.
 
 boundaryField
 {
 
     inlet
     {  
-        type            turbulentMixingLengthFrequencyInlet;
-        mixingLength    0.005;
-        value           uniform 0;
+        type            zeroGradient;
     }
 
     outlet
     {   
-        type            turbulentMixingLengthFrequencyInlet;
-        mixingLength    0.005;
-        value           uniform 0;
+        type            zeroGradient;
     }
 
     symmetry
@@ -69,7 +65,7 @@ boundaryField
         blending        binomial2;
         n               2.0;
 
-        value           uniform 0;
+        value           uniform 0.000001;
     }
 
     front
@@ -83,12 +79,8 @@ boundaryField
     }
 
     far_field
-    { // REVIEW
-        // documentation: https://www.openfoam.com/documentation/guides/latest/doc/guide-bcs-inlet-turbulent-omega-turbulent-mixing-length-frequency.html
-        type            turbulentMixingLengthFrequencyInlet;
-        
-        mixingLength    0.005;
-        value           uniform 0;
+    {
+        type            zeroGradient;
     }
 }
 

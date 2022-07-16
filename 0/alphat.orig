@@ -55,7 +55,7 @@ boundaryField
 
     far_field
     {
-        type            fixedValue;
+        type            calculated;
         value           uniform 0;
     }
 

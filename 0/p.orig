@@ -15,20 +15,19 @@ FoamFile
 
 dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 100000;
+internalField   uniform 101008;
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-	    value		    uniform 800000;
+	    value		    uniform 800000; // REVIEW: real value Rocket Propulsion Elements Book
     }
 
     outlet
     { // REVIEW: this value might not be fixed
-        type            fixedValue;
-	    value		    uniform 100000;
+        type            zeroGradient;
     }
 
 
@@ -59,7 +58,7 @@ boundaryField
     far_field
     {
         type            fixedValue;
-	    value		    uniform 100000;
+	    value		    uniform 101008;
     }
 }
 
