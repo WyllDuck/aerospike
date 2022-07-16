@@ -26,7 +26,7 @@ boundaryField
     }
 
     outlet
-    {
+    { // REVIEW: exit plume temperature should be much higher than this value?
         type            fixedValue;
 	    value		    uniform 298;
     }

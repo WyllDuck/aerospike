@@ -13,23 +13,45 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions[0 0 - 1 0 0 0 0];
+/* +++++++++++++++++++++++++++++++++ */
+// <-- Specific Dissipation Rate --> //
+/* +++++++++++++++++++++++++++++++++ */
 
-internalField uniform ? ? ? ;
+// walls:       fixedValue      10 * (6*nu/(beta_1 * detla_y^2))
+// free stream: fixedValue      U_inf/L < omega < 10*U_inf/L
+
+// source: https://curiosityfluids.com/2019/02/11/basic-komega-sst-boundary-conditions/
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// k        = 3/2 * (U_inf*I)^2
+// I        = 0,16/Re^(1/8)
+// epsilon  = C_mu^(3/4) * k^(3/2)/Dh
+// omega    = (k)^(1/2)/Dh
+
+// source: https://www.cfd-online.com/Forums/openfoam/93346-k-omega-boundary-conditions.html
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 -1 0 0 0 0];
+
+internalField uniform 0; // Considering static air (U_inf = 0) as the initial state.
 
 boundaryField
 {
 
     inlet
-    {
-        type            fixedValue;
-	    value		    uniform 2800;
+    {  
+        type            turbulentMixingLengthFrequencyInlet;
+        mixingLength    0.005;
+        value           uniform 0;
     }
 
     outlet
-    {
-        type            fixedValue;
-	    value		    uniform 298;
+    {   
+        type            turbulentMixingLengthFrequencyInlet;
+        mixingLength    0.005;
+        value           uniform 0;
     }
 
     symmetry
@@ -39,12 +61,15 @@ boundaryField
 
     walls
     {
-        type omegaWallFunction;
-        Cmu 0.09;
-        kappa 0.41;
-        E 9.8;
-        value uniform ? ? ? ? ;
-    }
+        // documentation: https://www.openfoam.com/documentation/guides/latest/doc/guide-bcs-wall-turbulence-omegaWallFunction.html
+        type            omegaWallFunction;
+
+        // Optional entries (unmodifiable)
+        beta1           0.075;
+        blending        binomial2;
+        n               2.0;
+
+        value           uniform 0;
     }
 
     front
@@ -58,11 +83,12 @@ boundaryField
     }
 
     far_field
-    {
-        type turbulentMixingLengthFrequencyInlet;
-        mixingLength 0.005;
-        k k;
-        value uniform ? ? ? ? ;
+    { // REVIEW
+        // documentation: https://www.openfoam.com/documentation/guides/latest/doc/guide-bcs-inlet-turbulent-omega-turbulent-mixing-length-frequency.html
+        type            turbulentMixingLengthFrequencyInlet;
+        
+        mixingLength    0.005;
+        value           uniform 0;
     }
 }
 

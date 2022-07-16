@@ -19,44 +19,44 @@ FoamFile
     walls
     {
         type            wall;
-        nFaces          494;
-        startFace       26516;
+        nFaces          988;
+        startFace       66572;
     }
     far_field
     {
         type            patch;
-        nFaces          320;
-        startFace       27010;
+        nFaces          640;
+        startFace       67560;
     }
     front
     {
         type            empty;
         nFaces          13540;
-        startFace       27330;
+        startFace       68200;
     }
     back
     {
         type            empty;
         nFaces          13540;
-        startFace       40870;
+        startFace       81740;
     }
     symmetry
     {
         type            symmetryPlane;
-        nFaces          266;
-        startFace       54410;
+        nFaces          532;
+        startFace       95280;
     }
     inlet
     {
         type            patch;
-        nFaces          10;
-        startFace       54676;
+        nFaces          20;
+        startFace       95812;
     }
     outlet
     {
         type            patch;
-        nFaces          38;
-        startFace       54686;
+        nFaces          76;
+        startFace       95832;
     }
 )
 

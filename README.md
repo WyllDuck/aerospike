@@ -9,7 +9,13 @@ https://www.openfoam.com/documentation/guides/latest/doc/guide-turbulence-ras-k-
 KOmegeSST Setup Boundary Conditions (IMPORTANT)
 https://curiosityfluids.com/2019/02/11/basic-komega-sst-boundary-conditions/
 
-nut: kinematic turbulence viscosity
+nut:    kinematic turbulence _viscosity_
+
+omega:  specific dissipation rate
+
+k:      turbulent kinetic _energy_
+
+alphat: __________
 
 Turbulence Kinematic Energy - Equation Explained
 https://en.wikipedia.org/wiki/Turbulence_kinetic_energy
