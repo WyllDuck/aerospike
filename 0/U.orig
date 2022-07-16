@@ -19,14 +19,45 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    sides
+    inlet
+    {
+        type            zeroGradient
+    }
+
+    outlet
     {
         type            zeroGradient;
     }
 
-    empty
+
+    simmetry
+    {
+        type            symmetryPlane;
+    }
+
+
+    walls
+    {
+        type            noSlip;
+    }
+
+
+   front	
     {
         type            empty;
+    }
+
+
+    back
+    {
+        type            empty;
+    }
+
+
+    far_fields
+    {
+        type            fixedValue;
+	value		uniform (0 0 0);
     }
 }
 
