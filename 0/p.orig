@@ -15,18 +15,18 @@ FoamFile
 
 dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 101008;
+internalField   uniform 101008; // 1 atm
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-	    value		    uniform 800000; // REVIEW: real value Rocket Propulsion Elements Book
+	    value		    uniform 2e07; // 200 bar combustion chamber
     }
 
     outlet
-    { // REVIEW: this value might not be fixed
+    {
         type            zeroGradient;
     }
 
@@ -58,7 +58,7 @@ boundaryField
     far_field
     {
         type            fixedValue;
-	    value		    uniform 101008;
+	    value		    uniform 101008; // 1 atm
     }
 }
 
