@@ -16,11 +16,22 @@ FoamFile
 
 solvers
 {
-    "(rho|rhoU|rhoE)"
+
+    rho
     {
         solver          diagonal;
     }
 
+    rhoU
+    {
+        solver          diagonal;
+    }
+
+    rhoE
+    {
+        solver          diagonal;
+    }
+    
     U
     {
         solver          smoothSolver;
@@ -41,19 +52,17 @@ solvers
 
     omega
     {
-        solver          smoothSolver;
-        smoother        GaussSeidel;
-        nSweeps         2;
-        tolerance       1e-09;
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-08;
         relTol          0.01;
     }
 
     k
     {
-        solver          smoothSolver;
-        smoother        GaussSeidel;
-        nSweeps         2;
-        tolerance       1e-09;
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-08;
         relTol          0.01;
     }
 
@@ -65,13 +74,24 @@ solvers
         relTol          0;
     }
 
-    fieldBounds
+}
+
+// Note: The solver could not solve the problem without outputing a negative temperature (K)
+// Thus we tried these two methods without much success
+fieldBounds
+{
+    p       1e-12   2e07;
+    T       1e-12   2800;
+}
+
+relaxationFactors
+{
+    fields
     {
-        p       1e-12   2e07;
-        T       1e-12   2800;
+        "p.*"           0.3;
+        "U.*"           0.7;
+        "T.*"           0.7;
     }
-
-
 }
 
 

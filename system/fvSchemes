@@ -30,7 +30,7 @@ divSchemes
 {
     default             none;
     div(tauMC)          Gauss linear;
-    div(phi,omega)      Gauss linear;
+    div(phi,omega)      Gauss upwind; // linear
     div(phi,k)          Gauss linear;
 }
 

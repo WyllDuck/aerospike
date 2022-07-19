@@ -18,6 +18,7 @@ defaultFieldValues
 (
     volScalarFieldValue T 298
     volScalarFieldValue p 101008
+    volVectorFieldValue U (0 0 0)
 );
 
 regions
@@ -29,6 +30,7 @@ regions
         (
             volScalarFieldValue T 2800
             volScalarFieldValue p 2e07
+            volVectorFieldValue U (0 1900 0)
         );
     }
 );
