@@ -30,7 +30,7 @@ regions
         (
             volScalarFieldValue T 2800
             volScalarFieldValue p 2e07
-            volVectorFieldValue U (0 1900 0)
+            volVectorFieldValue U (0 0 0)
         );
     }
 );
