@@ -25,9 +25,19 @@ boundaryField
 	    value		    uniform 2e07; // 200 bar combustion chamber
     }
 
+    // source: https://openfoamwiki.net/index.php/HowTo_Using_the_WaveTransmissive_Boundary_condition
     outlet
     {
-        type            zeroGradient;
+        type            waveTransmissive;
+        value           uniform 101008;   //important for correct I/O
+        gamma           1.4;              //the ratio of specific heats
+
+        // field           p;                //the name of the field that we are working on
+        // phi             phiv;             //the name of the volumetric flux field ( or if you use the mass flux phi, it will be divided by rho)
+        // rho             rho;              //the name of the density field
+        // psi             psi;              //the name of the field that is the deriv. of density with respect to pressure
+        // lInf            0.05;             //a measure of how far away the far-field condition should be
+        // fieldInf        101008;           //the far-field value to be applied to p
     }
 
 

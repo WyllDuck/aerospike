@@ -80,18 +80,8 @@ solvers
 // Thus we tried these two methods without much success
 fieldBounds
 {
-    p       1e-12   2e07;
-    T       1e-12   2800;
-}
-
-relaxationFactors
-{
-    fields
-    {
-        "p.*"           0.3;
-        "U.*"           0.7;
-        "T.*"           0.7;
-    }
+    p       1e-12   3e07;
+    T       1e-12   4000;
 }
 
 
