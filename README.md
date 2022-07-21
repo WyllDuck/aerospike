@@ -19,3 +19,6 @@ alphat: __________
 
 Turbulence Kinematic Energy - Equation Explained
 https://en.wikipedia.org/wiki/Turbulence_kinetic_energy
+
+Decompose Video
+https://www.youtube.com/watch?v=bHMdh_l45M0&t=1s

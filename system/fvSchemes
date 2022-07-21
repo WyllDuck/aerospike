@@ -14,42 +14,49 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-fluxScheme      Kurganov;
+fluxScheme      Tadmor;
 
 ddtSchemes
 {
-    default         Euler;
+    default        localEuler rDeltaT;
+
 }
 
 gradSchemes
 {
-    default         Gauss linear;
+    default cellLimited leastSquares 1;
 }
 
 divSchemes
 {
-    default             none;
-    div(tauMC)          Gauss linear;
-    div(phi,omega)      Gauss upwind; // linear
-    div(phi,k)          Gauss linear;
+    default none;
+    div(tauMC) Gauss linear;
+    div(phi,k) Gauss Gamma 1;
+    div(phi,omega) Gauss Gamma 1;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default Gauss linear corrected;
 }
 
 interpolationSchemes
 {
-    default         linear;
-    reconstruct(rho) vanAlbada;
-    reconstruct(U)  vanAlbadaV;
-    reconstruct(T)  vanAlbada;
+    default linear;
+    reconstruct(rho) Gamma 1;
+    reconstruct(U) GammaV 1;
+    reconstruct(T) Gamma 1;
 }
 
 snGradSchemes
 {
-    default         corrected;
+    default corrected;
+}
+
+fluxRequired
+{
+    default no;    
+    p;
 }
 
 wallDist

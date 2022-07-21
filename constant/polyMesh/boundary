@@ -42,7 +42,7 @@ FoamFile
     }
     symmetry
     {
-        type            symmetryPlane;
+        type            symmetry;
         nFaces          76;
         startFace       201094;
     }

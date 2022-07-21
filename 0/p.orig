@@ -22,7 +22,7 @@ boundaryField
     inlet
     {
         type            fixedValue;
-	    value		    uniform 2e07; // 200 bar combustion chamber
+	    value		    uniform 3e06; // 30 bar combustion chamber
     }
 
     // source: https://openfoamwiki.net/index.php/HowTo_Using_the_WaveTransmissive_Boundary_condition
@@ -43,7 +43,7 @@ boundaryField
 
     symmetry
     {
-        type            symmetryPlane;
+        type            symmetry;
     }
 
 

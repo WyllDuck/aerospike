@@ -16,13 +16,13 @@ FoamFile
 
 application     rhoCentralFoam;
 
-startFrom       latestTime;
+startFrom       startTime;
 
-startTime       0;
+startTime       0.0;
 
 stopAt          endTime;
 
-endTime         7e-03;
+endTime         4e-03;
 
 deltaT          1e-7;
 
@@ -46,7 +46,7 @@ runTimeModifiable true;
 
 adjustTimeStep  yes;
 
-maxCo           0.2;
+maxCo           0.01;
 
 maxDeltaT       1;
 
