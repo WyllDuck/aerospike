@@ -58,3 +58,11 @@ Co          0.15
 endTime     0.2050
 
 NOTE: The rest of the parameters are keept the same.
+
+**************************************
+Get Results Simulation + 3D model
+
+(public access)
+https://1drv.ms/u/s!AhNN3_xNz6xdg-NUF0unrIyeq6NvCg?e=idaQrV
+
+If you want to see the CFD results, download the .zip files and paste and replace all the files inside into this git repository. Then run paraFoam.
