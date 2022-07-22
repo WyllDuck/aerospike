@@ -30,8 +30,8 @@ OTPIONAL: You can check the residuals (in post-processing or on real-time) using
 Parameters simulation
 - 1 atm - 30 bar chamber
 
-Co          0.2
-endTime     0.1640
+Co          0.15
+endTime     0.1800
 
 - 0.6 atm - 30 bar chamber
 
