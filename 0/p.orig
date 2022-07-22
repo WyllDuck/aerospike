@@ -15,7 +15,7 @@ FoamFile
 
 dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 101008; // 1 atm
+internalField   uniform  60000; // NOTE: comparison at high alt // 101008; // 1 atm
 
 boundaryField
 {
@@ -29,7 +29,7 @@ boundaryField
     outlet
     {
         type            waveTransmissive;
-        value           uniform 101008;   //important for correct I/O
+        value           uniform 60000;    // NOTE: comparison at high alt // 101008; // 1 atm   //important for correct I/O
         gamma           1.4;              //the ratio of specific heats
 
         // field           p;                //the name of the field that we are working on
@@ -68,7 +68,7 @@ boundaryField
     far_field
     {
         type            fixedValue;
-	    value		    uniform 101008; // 1 atm
+	    value		    uniform 60000; // NOTE: comparison at high alt // 101008; // 1 atm
     }
 }
 

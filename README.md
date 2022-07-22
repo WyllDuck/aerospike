@@ -23,8 +23,10 @@ https://en.wikipedia.org/wiki/Turbulence_kinetic_energy
 Decompose Video
 https://www.youtube.com/watch?v=bHMdh_l45M0&t=1s
 
-How to Run It?
 **************************
+
+How to Run It?
+
 0) ./Allclean
 1) UNV file to OpenFoam
 ideasUnvToFoam meshes/aerospike_refined_2.unv
@@ -41,3 +43,18 @@ DecomposePar
 mpirun -np 4 rhoCentralFoam -parallel > log
 6) ReconstructPar
 7) paraFoam
+
+**************************************
+
+Parameters simulation
+- 1 atm - 30 bar chamber
+
+Co          0.2
+endTime     0.1640
+
+- 0.6 atm - 30 bar chamber
+
+Co          0.15
+endTime     0.2050
+
+NOTE: The rest of the parameters are keept the same.
